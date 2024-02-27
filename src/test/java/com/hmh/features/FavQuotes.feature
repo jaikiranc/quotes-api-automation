@@ -22,21 +22,20 @@ Feature: Favourite Quotes and List quotes Endpoint
 
   Scenario: Get quotes by a Author type
     Given Get quotes containing the filter "Mark Twain" for type author user DEFAULT_USER
+    Then Validate that the status code is SUCCESS
 
-
-
-  Scenario Outline: Get quotes by query parameters
-
-    Then Get Quotes with filter as <filter> type as <type> hiddenFlag as <hidden> by user <user>
-    #And Verify the Quotes is filtered by <filter> type as <type> hiddenFlag as <hidden> by user <user>
+  Scenario Outline: Get quotes by query parameters - filter and type
+    Given Get Quotes with filter as <filter> type as <type> by user <user>
+    Then Verify the Quotes is filtered by <filter> type as <type> by user <user>
 
     Examples:
-       | filter      | type    | hidden |user         |
-       | funny       | NULL    | NULL   |DEFAULT_USER |
-       | funny       | tag     | NULL   |DEFAULT_USER |
-       | Mark Twain  | author  | NULL   |DEFAULT_USER |
-       | 30522       | user    | NULL   |DEFAULT_USER |
-       | NULL        | tag     | 1      |DEFAULT_USER |
+       | filter      | type    | user            |
+       | funny       | tag     |    DEFAULT_USER |
+       | Mark Twain  | author  |   DEFAULT_USER  |
+       | 30522_jai       | user    |    DEFAULT_USER |
 
+  Scenario: Get hidden quotes for a given user
+  Given Get quotes hidden 1 by user DEFAULT_USER
+  Then Verify that the list of quotes has hidden flag
 
 

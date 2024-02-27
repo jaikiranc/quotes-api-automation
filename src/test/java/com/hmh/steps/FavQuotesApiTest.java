@@ -58,11 +58,10 @@ public class FavQuotesApiTest extends TestBase {
     }
 
     @Given("Get quotes containing the filter for word (.+) by user (.+)")
-    public void getQuotesContainingTWordFunny(String filter, String user) {
+    public void getQuotesContainingWordFunny(String filter, String user) {
         if (!filter.equalsIgnoreCase("NULL")) {
             setQueryParams("filter", filter);
         }
-
         response = request.get(UrlResources.getFavQuotes(), getUserSession(user), queryParams);
         LOGGER.info(response.getBody().asString());
         Assert.assertEquals(response.getStatusCode(), SUCCESS);
@@ -71,7 +70,6 @@ public class FavQuotesApiTest extends TestBase {
     @And("Verify that the list of quotes has word (.+)")
     public void verifyThatTheListOfQuotesHasWord(String word) {
         Assert.assertTrue(getAllQuotes(response).getQuotes().get(0).getBody().contains(word));
-
     }
 
     @Given("Get quotes containing the filter (.+) for type (.+) user (.+)")
@@ -83,8 +81,8 @@ public class FavQuotesApiTest extends TestBase {
         Assert.assertEquals(response.getStatusCode(), SUCCESS);
     }
 
-    @Given("Get Quotes with filter as (.+) type as (.+) hiddenFlag as (.+) by user (.+)")
-    public void getQuotesByQueryParams(String filter, String type, String pvt, String hidden, String user) {
+    @Given("Get Quotes with filter as (.+) type as (.+) by user (.+)")
+    public void getQuotesByQueryParams(String filter, String type, String user) {
         if (!filter.equalsIgnoreCase("NULL")) {
             setQueryParams("filter", filter);
         }
@@ -100,15 +98,45 @@ public class FavQuotesApiTest extends TestBase {
                     System.out.println("Wrong Query Param value provided : " + type);
             }
         }
-        if (!pvt.equalsIgnoreCase("NULL")) {
-            setQueryParams("private", pvt);
+
+        response = request.get(UrlResources.getFavQuotes(), getUserSession(user), queryParams);
+        LOGGER.info(response.getBody().asString());
+        Assert.assertEquals(response.getStatusCode(), SUCCESS);
+    }
+
+    @Then("Verify the Quotes is filtered by (.+) type as (.+) by user (.+)")
+    public void verifyTheQuotesIsFilteredByFilterType(String filter, String type,  String user) {
+
+
+        switch (type.toUpperCase()) {
+            case "TAG":
+                Assert.assertTrue(getAllQuotes(response).getQuotes().get(0).getTags().contains(filter));
+                break;
+            case "AUTHOR":
+                Assert.assertTrue(getAllQuotes(response).getQuotes().get(0).getAuthor().contains(filter));
+                break;
+            case "USER":
+                Assert.assertTrue(getAllQuotes(response).getQuotes().get(0).getUserDetails().getFavorite());
+                break;
+
+            default:
+                System.out.println("Wrong Query Param value provided : " + type);
         }
+
+    }
+
+    @Given("Get quotes hidden (.+) by user (.+)")
+    public void getQuotesHiddenBy(String hidden, String user) {
         if (!hidden.equalsIgnoreCase("NULL")) {
             setQueryParams("hidden", hidden);
-
         }
         response = request.get(UrlResources.getFavQuotes(), getUserSession(user), queryParams);
         LOGGER.info(response.getBody().asString());
         Assert.assertEquals(response.getStatusCode(), SUCCESS);
+    }
+
+    @And("Verify that the list of quotes has hidden flag")
+    public void verifyHiddenQuotes() {
+        Assert.assertTrue(getAllQuotes(response).getQuotes().get(0).getUserDetails().getHidden());
     }
 }
