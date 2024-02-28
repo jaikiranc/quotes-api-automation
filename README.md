@@ -31,11 +31,17 @@ The project is broken into separate modules for API testing. Each of these modul
 
 To run all modules, navigate to quotes-api-autoamtion directory and run:
 
-mvn clean install
+1. mvn clean
+2. mvn install
+3. mvn test
+4. Go to reports/cucumber-html-report and open the index.html file in a browser to view the tests status
 
-To run api tests, navigate to test-automation-quickstart directory and run:
 
-mvn clean install -Pui-acceptance-tests
+To be done in future:
+-----------------------------------------
+1. extenstsreport
+2. Parameterize tests
+3. Framework imporovements for Design patterns usage
 
 
 
