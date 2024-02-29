@@ -39,8 +39,8 @@ To run all modules, navigate to quotes-api-autoamtion directory and run:
 
 To be done in future:
 -----------------------------------------
-1. extenstsreport
-2. Parameterize tests
+1. Add extenstsreport plugin for reporting
+2. Parameterize tests to run based on tags
 3. Framework imporovements for Design patterns usage
 
 
