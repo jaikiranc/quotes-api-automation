@@ -28,7 +28,7 @@ In order to utilise this project you need to have the following installed locall
 
 Usage
 -----------------------------------------
-The project is broken into separate modules for API testing. Each of these modules can be utilised independently of the others using maven profiles.
+The project is broken into separate modules for API testing.
 
 To run all modules, navigate to quotes-api-autoamtion directory and run:
 
