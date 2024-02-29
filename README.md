@@ -34,7 +34,7 @@ To run all modules, navigate to quotes-api-autoamtion directory and run:
 1. mvn clean
 2. mvn install
 3. mvn test
-4. Go to reports/cucumber-html-report and open the index.html file in a browser to view the tests status
+4. Go to reports/cucumber-html-report and open the index.html file in a browser to view the test results in readable format
 
 
 To be done in future:
