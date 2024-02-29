@@ -10,12 +10,12 @@ Tools
 2. Cucumber-JVM
 3. JUnit
 4. Java 8
-5. testng
-6. log4j
-7. rest-assured
-8. gson
+5. TestNG
+6. Log4j
+7. Rest-assured
+8. Gson
 9. Json
-10. fasterxml-jackson
+10. Fasterxml-jackson
 
 Requirements
 ---------------------------------------
