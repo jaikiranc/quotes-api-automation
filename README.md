@@ -22,7 +22,7 @@ Requirements
 In order to utilise this project you need to have the following installed locally:
 
 1. Maven 3
-2. java 1.8
+2. Java 1.8
 3. You will need to create an account to generate an api key at https://favqs.com/api
 
 Usage
