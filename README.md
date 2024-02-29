@@ -1,7 +1,7 @@
 quotes-api-automation
 ----------------------------------------
-Rest assured cucumber based Behaviour driven development style api automation project for automating the - https://favqs.com/api
-This project has test for the LIST QUOTES and Fav Quotes end points automated.
+Rest assured cucumber based Behaviour driven development style, API automation project for automating the - https://favqs.com/api
+This project has tests for the LIST QUOTES and Fav Quotes end points automated.
 
 
 Tools
