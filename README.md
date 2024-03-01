@@ -32,7 +32,7 @@ The project is broken into separate modules for API testing.
 
 To run all modules, navigate to quotes-api-automation directory and run:
 
-1.Navigate to features directory and right click on CucumberRunner java file or Alternatively run below commands from the terminal
+1.Navigate to **/src/test/java/com/hmh/cucumber/** directory and right click on **CucumberRunner** java file or Alternatively run below commands from the terminal
 2. mvn clean
 3. mvn install
 4. mvn test
