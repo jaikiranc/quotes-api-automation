@@ -30,12 +30,13 @@ Usage
 -----------------------------------------
 The project is broken into separate modules for API testing.
 
-To run all modules, navigate to quotes-api-autoamtion directory and run:
+To run all modules, navigate to quotes-api-automation directory and run:
 
-1. mvn clean
-2. mvn install
-3. mvn test
-4. Go to reports/cucumber-html-report and open the index.html file in a browser to view the test results in readable format
+1.Navigate to features directory and right click on CucumberRunner java file or Alternatively run below commands from the terminal
+2. mvn clean
+3. mvn install
+4. mvn test
+5. Go to reports/cucumber-html-report and open the index.html file in a browser to view the test results in readable format
 
 
 To be done in future:
